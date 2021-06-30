@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Edge implements Serializable {
+
+    // Define the type of edge
     public enum EdgeTypes {
         FORWARD,
         BACKWARD

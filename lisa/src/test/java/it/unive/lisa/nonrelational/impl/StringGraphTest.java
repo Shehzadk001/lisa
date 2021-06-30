@@ -58,7 +58,7 @@ public class StringGraphTest {
                 result2.getForwardChildren().get(0).getValue().equals("a") &&
                 result2.getForwardChildren().get(1).getValue().equals("b");
 
-        // case 8
+        // case 3
         Node<?> node3 = new Concat();
         Node<?> node3simple1 = new Simple("a");
         node3.addForwardChild(node3simple1);
@@ -73,11 +73,11 @@ public class StringGraphTest {
         node3concat1.addBackwardChild(node3or1);
         node3concat1.addForwardChild(node3simple2);
 
-        System.out.println("!____NODE 8____!");
+        System.out.println("!____NODE 3____!");
         System.out.println(node3);
         System.out.println(node3.getDenotation());
         Node<?> result8 = NormalStringGraphUtils.compact(node3);
-        System.out.println("!____NODE 8 COMPACTED____!");
+        System.out.println("!____NODE 3 COMPACTED____!");
         System.out.println(result8);
         System.out.println(result8.getDenotation());
 

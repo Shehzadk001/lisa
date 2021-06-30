@@ -22,17 +22,17 @@ public class Const extends Node<Const.ConstValues> {
 
     @Override
     public <C extends Node<?>> void addForwardChild(C child) {
-        //throw new UnsupportedOperationException("Cannot add forward children to " + this.getClass().getName());
+        // throw new UnsupportedOperationException("Cannot add forward children to " + this.getClass().getName());
     }
 
     @Override
     public <C extends Node<?>> void addBackwardChild(C child) {
-        //throw new UnsupportedOperationException("Cannot add backward children to " + this.getClass().getName());
+        // throw new UnsupportedOperationException("Cannot add backward children to " + this.getClass().getName());
     }
 
     @Override
     public <C extends Node<?>> void removeChild(C child) {
-        //throw new UnsupportedOperationException("Cannot remove child from " + this.getClass().getName());
+        // throw new UnsupportedOperationException("Cannot remove child from " + this.getClass().getName());
     }
 
     @Override

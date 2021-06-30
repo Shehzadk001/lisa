@@ -177,7 +177,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 			try {
 				result.function.put(key, valueLifter.lift(getState(key), other.getState(key)));
 			} catch (SemanticException e) {
-				throw new SemanticException("Exception during functional lifting of key '" + key + "'", e);
+				throw new SemanticException("Exception during functionl lifting of key '" + key + "'", e);
 			}
 		return result;
 	}

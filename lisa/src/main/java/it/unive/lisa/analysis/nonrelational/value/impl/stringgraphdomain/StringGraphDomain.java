@@ -72,7 +72,7 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
 
     @Override
     public StringGraphDomain glbAux(StringGraphDomain other) {
-        /* INITIALIZATION */
+
         // Since the expected denotation should be an intersection (hence a list), the node must be an OR node
         Node<?> l0 = new Or();
         Set<Node<?>> S_sn = new LinkedHashSet<>();
@@ -81,7 +81,7 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
         l0.is().add(this.root);
         l0.is().add(other.root);
 
-        /* REPEAT-UNTIL */
+        // REPEAT-UNTIL
         do {
             // select random l from S_ul
             Node<?> l = S_ul.iterator().next();

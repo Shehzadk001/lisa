@@ -66,7 +66,7 @@ public class Concat extends Node<Integer> {
         for (Node<?> n : this.getForwardChildren()) {
             if (n.isFinite()) {
                 for (String str : n.getDenotation()) {
-                    // Concat happens only if none of the child nodes is TOP, otherwise result is all possible strings
+                    // Concat happens only if non of the child nodes is TOP, otherwise result is all possible strings
                     if (ConstValues.ALL_STRINGS.name().compareTo(s) != 0 && ConstValues.ALL_STRINGS.name().compareTo(str) != 0 )
                         s = s.concat(str);
                     else

@@ -179,7 +179,7 @@ public abstract class Node<V> implements Serializable {
     public abstract List<String> getDenotation();
 
     public boolean isFinite() {
-        // If the current node is a leaf, it is finite: return true
+        // If the current node is a leaf, it is finite: returns true
         if (this.isLeaf()) return true;
         else {
             // Otherwise the node itself and all child nodes must be checked not to have backward children

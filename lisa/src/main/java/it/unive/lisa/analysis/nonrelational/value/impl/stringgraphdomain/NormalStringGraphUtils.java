@@ -30,7 +30,7 @@ public abstract class NormalStringGraphUtils {
     }
 
     private static Node<?> compactAux(Node<?> node) {
-        // The algorithm is bottom up, starting from the leaves, so it recursively gets to the leaves first
+        // The algorithm is bottom up, starting from the leaves, so it recursivelly gets to the leaves first
         List<Node<?>> children = new ArrayList<>(node.getForwardChildren());
         for (Node<?> child : children) {
             Node<?> newChild = compactAux(child);

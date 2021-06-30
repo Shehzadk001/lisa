@@ -27,7 +27,7 @@ public class Simple extends Node<String> {
 
     @Override
     public <C extends Node<?>> void removeChild(C child) {
-        //throw new UnsupportedOperationException("Cannot remove child from " + this.getClass().getName());
+        // throw new UnsupportedOperationException("Cannot remove child from " + this.getClass().getName());
     }
 
     @Override

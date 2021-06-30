@@ -1,4 +1,4 @@
-class StringGraph {
+class StringGraphs {
 
     method1() {
         def x = "stringGraph";

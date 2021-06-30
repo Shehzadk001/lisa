@@ -132,7 +132,7 @@ public abstract class FixpointGraph<G extends FixpointGraph<G, N, E>,
 	 * {@link Lattice#lub(Lattice)} to compose results obtained at different
 	 * iterations, up to {@code widenAfter * predecessors_number} times, where
 	 * {@code predecessors_number} is the number of expressions that are
-	 * predecessors of the one being processed. After overcoming that threshold,
+	 * predecessors of the one being processed. After overcomming that threshold,
 	 * {@link Lattice#widening(Lattice)} is used. The computation starts at the
 	 * nodes in {@code startingPoints}, using as its entry state their
 	 * respective value. {@code cg} will be invoked to get the approximation of
