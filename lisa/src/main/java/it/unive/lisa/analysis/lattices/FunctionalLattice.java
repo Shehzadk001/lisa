@@ -15,9 +15,9 @@ import java.util.Set;
 /**
  * A generic functional abstract domain that performs the functional lifting of
  * the lattice on the elements of the co-domain.
- * 
+ *
  * @author <a href="mailto:luca.negrini@unive.it">Luca Negrini</a>
- * 
+ *
  * @param <F> the concrete {@link FunctionalLattice} type
  * @param <K> the concrete type of the keys of this function
  * @param <V> the concrete {@link Lattice} type of the values of this function
@@ -37,7 +37,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Builds the lattice.
-	 * 
+	 *
 	 * @param lattice the underlying lattice
 	 */
 	protected FunctionalLattice(V lattice) {
@@ -47,7 +47,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Builds the lattice by cloning the given function.
-	 * 
+	 *
 	 * @param lattice  the underlying lattice
 	 * @param function the function to clone
 	 */
@@ -60,9 +60,9 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 	 * Creates a new instance of the underlying function. The purpose of this
 	 * method is to provide a common function implementation to every subclass
 	 * that does not have implementation-specific requirements.
-	 * 
+	 *
 	 * @param other an optional function to copy, can be {@code null}
-	 * 
+	 *
 	 * @return a new function, either empty or containing the same data of the
 	 *             given one
 	 */
@@ -74,7 +74,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the set of keys currently in this lattice.
-	 * 
+	 *
 	 * @return the set of keys
 	 */
 	public final Set<K> getKeys() {
@@ -85,9 +85,9 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the state associated to the given key.
-	 * 
+	 *
 	 * @param key the key
-	 * 
+	 *
 	 * @return the state
 	 */
 	public final V getState(K key) {
@@ -95,7 +95,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 			return lattice.bottom();
 		if (isTop())
 			return lattice.top();
-		if (function.containsKey(key))
+		if (function != null && function.containsKey(key))
 			return function.get(key);
 		return lattice.bottom();
 	}
@@ -112,7 +112,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Interface for the lift of lattice elements.
-	 * 
+	 *
 	 * @author <a href="mailto:luca.negrini@unive.it">Luca Negrini</a>
 	 *
 	 * @param <V> {@link Lattice} type of the values
@@ -121,12 +121,12 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 		/**
 		 * Yields the lift of {@code first} and {@code second} lattice element.
-		 * 
+		 *
 		 * @param first  the first lattice element
 		 * @param second the second lattice element
-		 * 
+		 *
 		 * @return the lift of {@code first} and {@code second}
-		 * 
+		 *
 		 * @throws SemanticException if something goes wrong while lifting the
 		 *                               values
 		 */
@@ -135,7 +135,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Interface for the left of key sets.
-	 * 
+	 *
 	 * @author <a href="mailto:vincenzo.arceri@unive.it">Vincenzo Arceri</a>
 	 *
 	 * @param <K> the key type
@@ -144,12 +144,12 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 		/**
 		 * Yields the lift of {@code first} and {@code second} key sets.
-		 * 
+		 *
 		 * @param first  the first key set
 		 * @param second the second key set
-		 * 
+		 *
 		 * @return the left of {@code first} and {@code second} key sets
-		 * 
+		 *
 		 * @throws SemanticException if something goes wrong while lifting the
 		 *                               key sets
 		 */
@@ -158,13 +158,13 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the functional lift between {@code this} and {@code other}.
-	 * 
+	 *
 	 * @param other       the other functional lattice
 	 * @param keyLifter   the key lifter
 	 * @param valueLifter the value lifter
-	 * 
+	 *
 	 * @return the intersection between {@code k1} and {@code k2}
-	 * 
+	 *
 	 * @throws SemanticException if something goes wrong while lifting the
 	 *                               lattice elements
 	 */
@@ -184,12 +184,12 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the union of the keys between {@code k1} and {@code k2}.
-	 * 
+	 *
 	 * @param k1 the first key set
 	 * @param k2 the second key set
-	 * 
+	 *
 	 * @return the union between {@code k1} and {@code k2}
-	 * 
+	 *
 	 * @throws SemanticException if something goes wrong while lifting the keys
 	 */
 	protected Set<K> lubKeys(Set<K> k1, Set<K> k2) throws SemanticException {
@@ -200,12 +200,12 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the intersection of the keys between {@code k1} and {@code k2}.
-	 * 
+	 *
 	 * @param k1 the first key set
 	 * @param k2 the second key set
-	 * 
+	 *
 	 * @return the intersection between {@code k1} and {@code k2}
-	 * 
+	 *
 	 * @throws SemanticException if something goes wrong while lifting the key
 	 *                               sets
 	 */
@@ -280,7 +280,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the values of this functional lattice.
-	 * 
+	 *
 	 * @return the values of this functional lattice
 	 */
 	public Collection<V> values() {
@@ -291,7 +291,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the keys of this functional lattice.
-	 * 
+	 *
 	 * @return the keys of this functional lattice
 	 */
 	public Set<K> keys() {
@@ -302,7 +302,7 @@ public abstract class FunctionalLattice<F extends FunctionalLattice<F, K, V>, K,
 
 	/**
 	 * Yields the map associated with this functional lattice element.
-	 * 
+	 *
 	 * @return the map associated with this functional lattice element.
 	 */
 	public Map<K, V> getMap() {

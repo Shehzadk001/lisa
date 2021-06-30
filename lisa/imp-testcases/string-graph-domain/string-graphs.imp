@@ -1,0 +1,39 @@
+class StringGraph {
+
+    method1() {
+        def x = "stringGraph";
+        if (strcon(x,"c")) {
+            x = strcat(x,"a");
+        }
+    }
+
+    method2() {
+        def y = 0;
+        def x = "stringGraph";
+        if (y > 100) {
+            x = strcat(x,"a");
+        }
+    }
+
+    method3() {
+        def x = "string";
+        while (strcon(x,"H")) {
+            x = strcat(x," Graph");
+        }
+    }
+
+    method4() {
+        def y = 0;
+        def query = strcat("1a","2b");
+        if (y > 0) {
+            query = strcat(query, "3c");
+        }
+
+        def per = "4d";
+        query = strcat(query,"5e");
+        query = strcat(query, per);
+        query = strcat(query, "6f");
+        return query;
+    }
+
+}
